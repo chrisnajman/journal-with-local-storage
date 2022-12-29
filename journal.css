@@ -1,0 +1,308 @@
+:root {
+    --max-width: 47.5rem;
+    --horz-center: 0 auto;
+    --font-sans-serif: "Open Sans", sans-serif;
+    --font-serif: "Noto Serif", serif;
+}
+
+* {
+    box-sizing: border-box;
+    margin-top: 0;
+}
+
+html {
+    overflow-y: scroll;
+}
+html,
+body {
+    width: 100%;
+    height: 100%;
+}
+
+body {
+    font-size: 1rem;
+    font-family: var(--font-sans-serif);
+    font-weight: 400;
+    line-height: 1.5;
+    color: rgb(15, 15, 15);
+    background-color: rgb(245, 245, 250);
+    margin: 0;
+    padding: 1rem 0.5rem;
+}
+
+@media screen and (min-width: 500px) {
+    body {
+        padding: 2rem 1rem;
+    }
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-weight: 600;
+}
+
+button,
+input,
+textarea {
+    font-family: inherit;
+    font-size: inherit;
+}
+
+input,
+textarea {
+    padding: 1rem;
+    width: 100%;
+    height: auto;
+}
+
+textarea {
+    resize: none;
+}
+
+button {
+    cursor: pointer;
+    text-align: center;
+    padding: 0.57rem;
+    margin-left: auto;
+    color: currentColor;
+    background: white;
+    border: 1px solid currentColor;
+    border-radius: 0.2rem;
+    min-width: 13ch;
+}
+
+button:hover {
+    box-shadow: 5px 5px 5px 0px rgba(0, 0, 0, 0.31);
+}
+
+/** Page layout **/
+.page-wrapper {
+    min-height: 100%;
+    display: grid;
+    grid-template-rows: auto 1fr auto;
+    grid-template-columns: 100%;
+}
+.heading-main,
+.main,
+.footer-wrapper {
+    width: 100%;
+}
+
+.page-footer {
+    display: flex;
+    align-items: flex-end;
+    padding-top: 10rem;
+}
+
+.wrapper {
+    max-width: var(--max-width);
+    margin: var(--horz-center);
+    display: flex;
+    flex-direction: column;
+    gap: 3rem;
+}
+
+/** Header */
+.heading-main {
+    display: flex;
+    flex-direction: column;
+    max-width: var(--max-width);
+    margin: var(--horz-center);
+    margin-bottom: 3rem;
+}
+@media screen and (min-width: 500px) {
+    .heading-main {
+        flex-direction: row;
+    }
+}
+
+.heading-main button {
+    align-self: flex-start;
+    font-size: 1.25rem;
+}
+
+@media screen and (min-width: 500px) {
+    .heading-main button {
+        font-size: 2rem;
+    }
+}
+
+.heading-main button:disabled {
+    opacity: 0.2;
+    cursor: default;
+    box-shadow: none;
+}
+
+/** Form **/
+.journal-form {
+    display: flex;
+    flex-direction: column;
+    padding: 1rem;
+}
+
+.journal-form p {
+    margin-bottom: 0;
+}
+
+.journal-form-header {
+    margin-bottom: 1.5rem;
+}
+
+.journal-form-header .date-picker {
+    display: flex;
+    flex-direction: column;
+}
+
+.journal-form-header .journal-entry-date {
+    padding: 0;
+    width: fit-content;
+    cursor: pointer;
+}
+
+.journal-form > div {
+    padding: 1rem 0;
+    display: flex;
+    flex-direction: column;
+}
+
+.journal-form label {
+    font-weight: 500;
+    padding-bottom: 0.5rem;
+}
+
+.journal-form .button-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+@media screen and (min-width: 500px) {
+    .journal-form .button-group {
+        flex-direction: row;
+        margin-left: auto;
+        margin-right: 0;
+    }
+}
+
+.journal-form .button-group button {
+    align-self: flex-start;
+    margin-left: 0;
+}
+
+.journal-form input[type="text"],
+.journal-form textarea {
+    font-family: var(--font-serif);
+}
+
+/** Journal list **/
+.journal-list {
+    list-style: none;
+    padding-left: 0;
+
+    display: flex;
+    flex-direction: column-reverse;
+    gap: 2rem;
+}
+
+.journal-item {
+    display: flex;
+    flex-direction: column;
+    border: 1px dotted gray;
+    background: white;
+    padding: 1rem;
+    gap: 1rem;
+}
+
+/** Journal entry **/
+.journal-entry button,
+.journal-entry-heading,
+.journal-entry-content {
+    font-family: var(--font-serif);
+}
+
+.journal-date,
+.journal-entry-content {
+    font-weight: 400;
+}
+
+.journal-entry-heading {
+    font-weight: 700;
+}
+.journal-entry {
+    display: flex;
+    flex-direction: column;
+}
+
+.journal-entry button {
+    border: 0;
+    color: blue;
+}
+.journal-entry button:hover {
+    color: green;
+    box-shadow: none;
+    outline: 1px dotted currentColor;
+}
+
+.journal-entry button.save-edit {
+    color: red;
+}
+
+.text[contenteditable] {
+    background: white;
+    outline: 1px dashed currentColor;
+    padding: 2rem;
+}
+
+.text[contenteditable]:focus {
+    outline: 1px solid currentColor;
+    cursor: default;
+    box-shadow: 10px 10px 5px 0px rgba(0, 0, 0, 0.25);
+}
+
+.journal-content-wrapper,
+.journal-entry-heading {
+    display: flex;
+    flex-direction: column;
+}
+
+@media screen and (min-width: 500px) {
+    .journal-content-wrapper,
+    .journal-entry-heading {
+        flex-direction: row;
+        align-items: flex-start;
+    }
+}
+
+.journal-entry-content {
+    max-width: 60ch;
+}
+
+/** Helper classes **/
+.hide {
+    display: none;
+}
+
+.show {
+    display: flex;
+}
+
+.warning {
+    color: red;
+}
+
+.sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    border: 0;
+}

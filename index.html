@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Noto+Serif:wght@400;700&family=Open+Sans:wght@300;500&display=swap"
+      rel="stylesheet"
+    />
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
+    <title>Journal with Local Storage</title>
+
+    <link rel="stylesheet" href="journal.css" />
+    <script src="journal.js" defer></script>
+  </head>
+  <body>
+    <div class="page-wrapper">
+      <header class="heading-main">
+        <h1>Journal</h1>
+        <button data-button-create-entry id="create-entry">Create entry</button>
+      </header>
+      <main class="main wrapper">
+        <form action="submit" class="journal-form hide" id="journal-form">
+          <header class="journal-form-header">
+            <h2>New Entry</h2>
+            <div class="date-picker">
+              <label for="journal-entry-date">Add entry date (optional)</label>
+              <input
+                type="date"
+                class="journal-entry-date"
+                id="journal-entry-date"
+              />
+            </div>
+          </header>
+          <p>Header and text fields are required.</p>
+          <div class="journal-form-heading">
+            <label for="journal-heading" class="sr-only">Heading</label>
+            <input
+              id="journal-heading"
+              type="text"
+              placeholder="Enter a heading..."
+            />
+            <span class="warning warning-heading"></span>
+          </div>
+          <div class="journal-form-text">
+            <label for="journal-text" class="sr-only">Text</label>
+            <textarea
+              rows="5"
+              cols="50"
+              name="journal-text"
+              id="journal-text"
+              placeholder="Enter some text..."
+            ></textarea>
+            <span class="warning warning-text"></span>
+          </div>
+          <div class="button-group">
+            <button id="publish">Publish</button>
+            <button id="cancel">Cancel</button>
+          </div>
+        </form>
+
+        <!-- Journal list appears here -->
+
+        <template id="journal-item-template">
+          <li class="journal-item">
+            <span data-journal-date class="journal-date"></span>
+            <article class="journal-entry">
+              <header class="journal-entry-heading">
+                <h2 data-journal-heading class="text"></h2>
+                <button data-button-heading-edit>Edit heading</button>
+              </header>
+              <div class="journal-content-wrapper">
+                <p data-journal-text class="journal-entry-content text"></p>
+                <button data-button-text-edit>Edit text</button>
+              </div>
+            </article>
+            <button data-button-journal-delete>Delete entry</button>
+          </li>
+        </template>
+      </main>
+      <footer class="page-footer">
+        <div class="wrapper footer-wrapper">
+          <ul>
+            <li>
+              <a
+                href="https://github.com/chrisnajman/journal-with-local-storage"
+                target="_blank"
+                rel="noopener noreferrer"
+                >Github repository</a
+              >
+            </li>
+          </ul>
+        </div>
+      </footer>
+    </div>
+  </body>
+</html>
