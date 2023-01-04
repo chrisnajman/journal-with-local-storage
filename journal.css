@@ -237,7 +237,7 @@ button:hover {
 .journal-entry {
     display: flex;
     flex-direction: column;
-    border-bottom: 1px solid currentColor;
+    border-bottom: 1px dotted currentColor;
     padding-bottom: 1.5rem;
 }
 
