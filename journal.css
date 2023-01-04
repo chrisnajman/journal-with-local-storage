@@ -237,12 +237,20 @@ button:hover {
 .journal-entry {
     display: flex;
     flex-direction: column;
+    border-bottom: 1px solid currentColor;
+    padding-bottom: 1.5rem;
 }
 
 .journal-entry button {
     border: 0;
     color: blue;
+    align-self: flex-end;
 }
+
+.journal-entry-button-delete {
+    margin: 1rem auto;
+}
+
 .journal-entry button:hover {
     color: green;
     box-shadow: none;
