@@ -159,7 +159,7 @@ button:hover {
 
 .journal-form-header .journal-entry-date {
     padding: 0;
-    width: fit-content;
+    width: -moz-fit-content; width: fit-content;
     cursor: pointer;
 }
 
